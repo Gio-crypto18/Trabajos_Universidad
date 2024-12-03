@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CrehanaWeb</title>
+    <link rel="stylesheet" href="Clase10.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>CrehanaWeb</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" id="inicio">Inicio</a></li>
+                <li><a href="#" id="servicios">Servicios</a></li>
+                <li><a href="#" id="contacto">Contacto</a></li>
+                <li><a href="#" id="inicios">Inicio de Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="Inicio" class="Inicio_container">
+        <h2>Productos de calidad y diseños exclusivos, superando siempre sus expectativas.</h2>
+        <p>Conoce nuestros servicios y encuentra lo que necesitas.</p>
+    </section>
+
+    <section id="servicios" class="servicios_container">
+        <h2>Servicios</h2>
+        <div class="servicio_imagen">
+            <img src="img/SERVICIO1.jpg" alt="Servicio 1">
+            <p>Servicio</p>
+        </div>
+        <div class="servicio_imagen">
+            <img src="img/SERVICIO2.jpg" alt="Servicio 2">
+            <p>Servicio</p>
+        </div>
+        <div class="servicio_imagen">
+            <img src="img/SERVICIO3.jpg" alt="Servicio 3">
+            <p>Servicio</p>
+        </div>
+    </section>
+
+
+    <section id="videos" class="videos_container">
+        <h2>Videos de Proyectos Realizados</h2>
+
+        <!-- Primer video -->
+        <div class="video">
+            <iframe width="300" height="200" src="https://www.youtube.com/embed/VIDEO_ID_1?autoplay=0" frameborder="0" allowfullscreen></iframe>
+            <p>primer proyecto</p>
+        </div>
+
+        <!-- Segundo video -->
+        <div class="video">
+            <iframe width="300" height="200" src="https://www.youtube.com/embed/VIDEO_ID_2?autoplay=0" frameborder="0" allowfullscreen></iframe>
+            <p>segundo proyecto</p>
+        </div>
+
+        <!-- Tercer video -->
+        <div class="video">
+            <iframe width="300" height="200" src="https://www.youtube.com/embed/VIDEO_ID_3?autoplay=0" frameborder="0" allowfullscreen></iframe>
+            <p>tercer proyecto</p>
+        </div>
+    </section>
+
+
+
+    
+
+    <section id="contacto" class="contacto_container">
+        <h2>Contacto</h2>
+        <form>
+            <input type="text" id="name" name="name" placeholder="Nombres" >
+            <input type="email" id="email" name="email" placeholder="Correo Electrónico" >
+            <textarea id="message" name="message" placeholder="Mensaje" ></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <section id="inicio_sesion" class="inicio_sesion">
+        <div class="inicio-container">
+            <div class="inicios-form">
+                <h2>Iniciar Sesión</h2>
+                <form>
+                    <button type="button" class="inicio_facebook">Iniciar sesión con Facebook</button>
+                    <button type="button" class="inicio_google">Iniciar sesión con Google</button>
+                    <button type="button" class="inicio_apple">Iniciar sesión con Apple</button>
+                    <input type="email" id="email" name="email" placeholder="Correo Electrónico" >
+                    <input type="password" id="password" name="password" placeholder="Contraseña" >
+                    <button type="submit">Iniciar Sesión</button>
+                </form>
+            </div>
+            <div class="inicios-image">
+                <img src="img/login.jpeg" alt="Login Image">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social">
+            <a href="https://www.facebook.com">
+                <img src="img/fb_logo.png" alt="Facebook">
+            </a>
+            <a href="https://www.linkedin.com">
+                <img src="img/linkedin.png" alt="LinkedIn">
+            </a>
+            <a href="https://www.youtube.com">
+                <img src="img/Youtube-Icon-square-2340x2340-2.png" alt="YouTube">
+            </a>
+        </div>
+        <p>&copy; 2024 CrehanaWeb. Todos los derechos reservados.</p>
+    </footer>
+    
+
+    <script src="js/menu.js"></script>
+</body>
+</html>

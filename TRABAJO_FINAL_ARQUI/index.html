@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido al chifa Ting Ling</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><img src="nuevologo.png"></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="platos.html">Platos</a></li>
+                <li><button id="login-button">Iniciar Sesión</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <img src="descarga.png" alt="">
+                <div class="hero-info">
+                    <h1 class="promotion-title">SUPER BANQUETE </h1>
+                    <div class="platos">
+                        Arroz Chaufa<br>
+                        Chi Jao Kai<br>
+                        Tallarin saltado<br>
+                        Lemon Honey<br>
+                        Mandarin<br>
+                        +1 docena de wantanes
+                    </div>
+                    <h2 class="promotion-subtitle">Precio: S/59.90</h2>
+
+                    <a href="platos.html">
+                        <button class="hero-button-info">Comprar</button>
+                    </a>
+                    
+                </div>
+            </div>
+        </section>
+
+        <section class="programs">
+            <h2>Menú del día</h2>
+            <div class="program-cards">
+                <a href="platos.html" class="card">
+                    <img src="imagen_2024-10-25_132140850-removebg-preview.png" alt=>
+                    <p>Combinado Taypa S/22</p>
+                </a>
+        
+                <a href="platos.html" class="card">
+                    <img src="COMBINADO.png" alt="">
+                    <p>Combinado Saltado S/20</p>
+                </a>
+        
+                <a href="platos.html" class="card">
+                    <img src="CHIFAJAUKAI.png" alt="">
+                    <p>Monstricrunch S/20</p>
+                </a>
+        
+                <a href="platos.html" class="card">
+                    <img src="AEROPUERTO.png" alt="">
+                    <p>Aeropuerto Chi Jau Kai S/24</p>
+                </a>
+            </div>
+        </section>
+        
+    </main>
+
+    <!-- Modal para el formulario de login -->
+    <div id="modal-login" class="modal">
+        <div class="modal-content">
+            <span class="close">
+                <i class="fa-solid fa-xmark close-modal"></i>
+            </span>
+
+            <form id="login-form" class="login-form">
+                <h2>Iniciar Sesión</h2>
+
+                <div class="input-user">
+                    <label for="username">Usuario</label>
+                    <input type="text" id="username" name="username" placeholder="Usuario" autocomplete="off">
+                </div>
+
+                <div class="input-password">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" name="password" placeholder="Contraseña" autocomplete="off">
+                </div>
+
+                <button type="submit">Iniciar Sesión</button>
+
+                <p>¿No tienes una cuenta? <a href="#" id="show-register-button">Regístrate</a></p>
+                <p>Iniciar sesión con:</p>
+
+                <div class="social-login">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-google"></i></a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para el formulario de registro -->
+    <div id="modal-register" class="modal">
+        <div class="modal-content">
+            <span class="close"><i class="fa-solid fa-xmark close-modal"></i></span>
+            <form id="register-form" class="register-form">
+                <h2>Regístrate</h2>
+                <label for="firstname">Nombre</label>
+                <input type="text" id="firstname" name="firstname" placeholder="Nombre" autocomplete="off">
+                <label for="lastname">Apellidos</label>
+                <input type="text" id="lastname" name="lastname" placeholder="Apellidos" autocomplete="off">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Email" autocomplete="off">
+                <label for="reg-password">Contraseña</label>
+                <input type="password" id="reg-password" name="password" placeholder="Contraseña" autocomplete="off">
+                <button type="submit">Registrarse</button>
+                <p>¿Ya tienes una cuenta? <a href="#" id="show-login-button">Iniciar sesión</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("register-form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const nombre = document.getElementById("firstname").value;
+            const email = document.getElementById("email").value;
+            localStorage.setItem('nombreUsuario', nombre);
+            localStorage.setItem("user", JSON.stringify({ nombre, email }));
+            window.location.href = "./pages/nuevo.html";
+        });
+    </script>
+
+
+    <script src="https://kit.fontawesome.com/00bdc18b44.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+	<script language = "javascript"> const modalLogin = document.getElementById("modal-login");
+const modalRegister = document.getElementById("modal-register");
+const loginButton = document.getElementById("login-button");
+const showRegisterButton = document.getElementById("show-register-button");
+const showLoginButton = document.getElementById("show-login-button");
+const closeModalButtons = document.getElementsByClassName("close-modal");
+
+loginButton.addEventListener("click", () => {
+    modalLogin.style.display = "flex";
+});
+
+showRegisterButton.addEventListener("click", () => {
+    modalLogin.style.display = "none";
+    modalRegister.style.display = "flex";
+})
+
+showLoginButton.addEventListener("click", () => {
+    modalRegister.style.display = "none";
+    modalLogin.style.display = "flex";
+})
+
+for (let i = 0; i < closeModalButtons.length; i++) {
+    closeModalButtons[i].addEventListener('click', function() {
+        modalLogin.style.display = "none";
+        modalRegister.style.display = "none";
+    });
+} </script>
+</body>
+
+</html>

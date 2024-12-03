@@ -1,0 +1,219 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Pago</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos para dividir la pantalla en dos columnas */
+        .contenedor {
+            display: flex;
+            justify-content: space-between;
+        }
+        .carrito-compras-d, .contenedor-principal {
+            width: 48%;
+        }
+        
+        /* Estilos para el campo del número de tarjeta */
+        .campo-tarjeta {
+            position: relative;
+            width: 100%;
+        }
+
+        .campo-tarjeta input {
+            width: 100%;
+            padding-right: 40px; /* Espacio para el logo de la tarjeta */
+        }
+
+        .logo-tarjeta {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 24px;
+            width: auto;
+        }
+
+        /* Estilos para el resumen del carrito */
+        .item-carrito {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .item-detalle {
+            display: flex;
+            align-items: center;
+        }
+
+        .item-detalle img {
+            margin-right: 10px;
+        }
+
+        .boton-cantidad {
+            background: none;
+            border: 1px solid #333;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .boton-eliminar {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+/*
+        .hidden {
+            display: none;
+        }*/
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="carrito-compras-d">
+            <h1>Resumen de Compra</h1>
+            <div id="resumen-carrito">
+                
+            </div>
+            <h3 id="total-compra">Total: S/ 0.00</h3>
+        </div>
+
+        <div class="contenedor-principal">
+            <form id="formulario-pago">
+                <h2>Información del Cliente</h2>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+                
+                <label for="direccion">Dirección de envío:</label>
+                <input type="text" id="direccion" name="direccion" required>
+                
+                <label for="metodo-pago">Método de Pago:</label>
+                <select id="metodo-pago" name="metodo-pago" required>
+                    <option value="tarjeta">Tarjeta de Crédito/Débito</option>
+                    <option value="efectivo">Efectivo</option>
+                </select>
+
+                <!-- Campo para el número de tarjeta con logo dentro -->
+                <label for="numero-tarjeta">Número de Tarjeta:</label>
+                <div class="campo-tarjeta">
+                    <input type="text" id="numero-tarjeta" name="numero-tarjeta" maxlength="16" pattern="\d{16}" placeholder="1234 5678 9012 3456" required>
+                    <img id="logo-tarjeta" class="logo-tarjeta hidden" src="" alt="Logo Tarjeta">
+                </div>
+
+                <label for="codigo-descuento">Código de Descuento (opcional):</label>
+                <input type="text" id="codigo-descuento" name="codigo-descuento">
+
+                <button type="submit">Finalizar Compra</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', function(){
+            var logo = document.getElementById('logo-tarjeta');
+            logo.src = 'logopng.png';
+
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Obtener y mostrar el resumen del carrito almacenado en localStorage
+            var resumenCarrito = JSON.parse(localStorage.getItem('resumenCarrito')) || [];
+            var resumenDiv = document.getElementById('resumen-carrito');
+            var totalCompra = document.getElementById('total-compra');
+            console.log(resumenCarrito);
+            
+            function actualizarResumen() {
+                resumenDiv.innerHTML = '';
+                var total = 0;
+                
+                resumenCarrito.forEach((item, index) => {
+                    var itemDiv = document.createElement('div');
+                    itemDiv.classList.add('item-carrito');
+                    itemDiv.innerHTML = `
+                        <div class="item-detalle">
+
+                            <div>
+                                <div style="display: flex; align-items: center;">
+                                    <p><strong>${item.titulo}</strong></p>
+                                    <span style="margin: 0 10px;">${item.cantidad}</span>
+                                    <span style="margin-left: 10px;">S/ ${item.precio.slice(3)}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    `;
+                    resumenDiv.appendChild(itemDiv);
+ 
+                    // Calcular el total acumulado
+                    total += parseFloat(item.precio.slice(3)) * item.cantidad;
+                });
+
+
+                // Mostrar el total
+                totalCompra.textContent = `Total: S/ ${total}`;
+            }
+
+
+            
+
+
+
+            // Mostrar el resumen de compra al cargar la página
+            actualizarResumen();
+
+
+            // Detectar tipo de tarjeta y mostrar logo
+            var numeroTarjetaInput = document.getElementById('numero-tarjeta');
+            var logo = document.getElementById('logo-tarjeta');
+            console.log(logo);
+            numeroTarjetaInput.addEventListener('input', function() {
+                var numeroTarjeta = this.value;
+                if (/^4/.test(numeroTarjeta)) {
+                    logo.src = 'visa.png'; // Ruta de imagen de Visa
+                } else if (/^5[1-5]/.test(numeroTarjeta)) {
+                    logo.src = 'mastercard.png'; // Ruta de imagen de MasterCard
+                } else if (/^3[47]/.test(numeroTarjeta)) {
+                    logo.src = 'amex.png'; // Ruta de imagen de American Express
+                } else if (/^3(?:0[0-5]|[68])/.test(numeroTarjeta)) {
+                    logo.src = 'diners_club.png'; // Ruta de imagen de Diners Club
+                } else {
+                    logo.src = 'logopng.png';
+                }
+            });
+
+
+
+            // Deshabilitar campo de tarjeta si se elige "Efectivo"
+            var metodoPagoSelect = document.getElementById('metodo-pago');
+            metodoPagoSelect.addEventListener('change', function() {
+                if (metodoPagoSelect.value === 'efectivo') {
+                    numeroTarjetaInput.disabled = true;
+                    numeroTarjetaInput.value = ''; // Limpiar el campo si se elige "Efectivo"
+                    logo.src = ''; // Quitar logo de tarjeta
+                } else {
+                    numeroTarjetaInput.disabled = false;
+                }
+            });
+
+            // Procesar el formulario y redirigir a la página de confirmación
+            var formulario = document.getElementById('formulario-pago');
+            formulario.addEventListener('submit', function(event) {
+                event.preventDefault();
+                var nombre = document.getElementById('nombre').value;
+                localStorage.setItem('usuarioRegistrado', nombre);
+
+                alert("Gracias por su compra, " + nombre);
+                window.location.href = "index.html"; 
+            });
+        });
+
+    </script>
+</body>
+</html>

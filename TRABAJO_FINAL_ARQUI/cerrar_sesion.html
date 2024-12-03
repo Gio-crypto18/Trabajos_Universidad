@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cerrar Sesi�n</title>
+    <link rel="stylesheet" href="../var/www/html/styles.css"> <!-- Aseg�rate de enlazar el CSS correctamente -->
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><img src="logo.jpg" alt="Logo"></li>
+                <li><a href="./menu.html">Inicio</a></li>
+                <li><a href="./informacion.html">Informaci�n Importante</a></li>
+                <li><a href="./compras.html">Mis Compras</a></li>
+                <li><img src="../assets/images/perfil.jpeg" alt="Foto de perfil"></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="welcome-section">
+            <h1>�Deseas terminar por hoy?</h1>
+            <img src="../assets/images/usuario.jpg" alt="Avatar" class="avatar-img">
+            <p>Esperamos vernos pronto para m�s sesiones</p>
+        </section>
+
+        <section class="seccion-inferior">
+            <h2>�Deseas cerrar sesi�n?</h2>
+            <div class="opciones">
+                <button id="boton-si" class="boton-cierre">S�</button>
+                <button id="boton-no" class="boton-cierre">No</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal para el formulario de registro -->
+    <div id="modal-cerrar-sesion" class="modal">
+        <div class="modal-content">
+            <h2>Cierre de sesi�n</h2>
+            <p>La sesi�n fue cerrada con �xito</p>
+            <p>Nos vemos pronto</p>
+            <button onclick="location.href='../index.html'">Ir al inicio</button>
+        </div>
+    </div>
+
+    <script>
+        // Funcionalidad para los botones
+        document.getElementById("boton-si").addEventListener("click", () => {
+            document.getElementById("modal-cerrar-sesion").style.display = "flex";
+        });
+
+        document.getElementById("boton-no").addEventListener("click", () => {
+            location.href = "nuevo.html";
+        });
+    </script>
+</body>
+
+</html>

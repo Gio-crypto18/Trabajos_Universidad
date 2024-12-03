@@ -1,0 +1,182 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #FFA22A;
+    color: #82AC26;
+}
+
+header {
+    background-color: #4F3F84;
+    padding: 1rem;
+    position: sticky;
+    top: 0; 
+    z-index: 1000;
+}
+
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-links a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.Inicio_container {
+    text-align: center;
+    padding: 2rem;
+}
+
+.servicios_container {
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+    background-color: #FF662A;
+}
+
+.servicio_imagen {
+    text-align: center;
+    max-width: 200px;
+}
+
+.servicio_imagen img {
+    width: 100%;
+    height: auto;
+    max-width: 150px; 
+}
+
+
+.videos_container {
+    margin-top: 20px;
+    text-align: center; 
+}
+
+.video {
+    display: inline-block;
+    margin: 10px;
+}
+
+.video iframe {
+    border: 1px solid #ccc; 
+}
+
+
+.contacto_container {
+    background-color: #FFA22A;
+    padding: 2rem;
+}
+
+.contacto_container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contacto_container input, .contacto_container textarea {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+.inicio_sesion {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.inicio-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    max-width: 800px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.inicios-form {
+    flex: 1;
+    padding: 2rem;
+}
+
+.inicios-form h2 {
+    margin-bottom: 1rem;
+    color: #4F3F84;
+}
+
+.inicios-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.inicios-form input {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.inicio_facebook, .inicio_google, .inicio_apple {
+    background: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+}
+
+.inicios-image {
+    flex: 1;
+    background-color: #e6e6e6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inicios-image img {
+    width: 100%; 
+    height: 100%; 
+    max-height: 100%; 
+    max-width: 100%; 
+    object-fit: contain; 
+}
+
+
+
+footer {
+    background-color: #4F3F84;
+    padding: 20px;
+    text-align: center; 
+}
+
+
+.social {
+    margin-top: 10px; 
+}
+
+.social a {
+    display: inline-block; 
+    margin-right: 10px;
+}
+
+.social img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%; 
+    transition: transform 0.3s ease;
+}
+
+.social img:hover {
+    transform: scale(1.2); 
+}

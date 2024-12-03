@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gracias por Comprar en Ting Ling</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><img src="nuevologo.png" alt="Logo"></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="promociones.html">Promociones</a></li>
+                <li><a href="compras.html">Mis Compras</a></li>
+                <li><button id="login-button">Iniciar Sesion</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="welcome-section">
+            <h1 id="welcome-message">Bienvenido, </h1>
+            <img src="usuario.jpg" alt="Imagen de Perfil" class="perfil-image">
+            <p class="adiciones-titulo">Deseas agregar algo extra?</p>
+        </section>
+
+        <section class="adiciones-section">
+            <div class="adiciones-barra">
+                <button class="addition-button">
+                    <img src="coca.png" alt="Gaseosa " class="icono">
+                    Gaseosa
+                </button>
+                <button class="addition-button">
+                    <img src="sopa.png" alt="Gaseosa" class="icono">
+                    Sopa Wantan
+                </button>
+                <button class="addition-button">
+                    <img src="wantan.png" alt="Wantan" class="icono">
+                    Wantán
+                </button>
+                <button class="addition-button">
+                    <img src="alitas.png" alt="Churros" class="icono">
+                    Alitas
+                </button>
+            </div>
+        </section>
+
+        <section class="shopping-cart">
+            <h2>Tu carrito</h2>
+            <p class="discount-info">Cuentas con cupones de Dscto.? Ingresalos en el siguiente paso</p>
+        
+            <div class="cart-item">
+                <img src="imagen_2024-10-25_114514318-removebg-preview.png" alt="Banquete para 6" class="item-image">
+                <div class="item-details">
+                    <p class="item-name">01 x Banquete para 6</p>
+                    <p class="item-price">S/ 49.90</p>
+                    <button class="view-details">Ver detalles</button>
+                </div>
+                <div class="item-quantity">
+                    <button class="quantity-btn">-</button>
+                    <span class="quantity-number">1</span>
+                    <button class="quantity-btn">+</button>
+                    <p class="add-more">Agregar una unidad mas</p>
+                </div>
+                <button class="remove-item">01</button>
+            </div>
+        
+            <div class="cart-item">
+                <img src="COMBINADO.png" alt="Combo Combinado Saltado" class="item-image">
+                <div class="item-details">
+                    <p class="item-name">01 x Combo Combinado Saltado</p>
+                    <p class="item-price">S/ 19.90</p>
+                    <button class="view-details">Ver detalles</button>
+                </div>
+                <div class="item-quantity">
+                    <button class="quantity-btn">-</button>
+                    <span class="quantity-number">1</span>
+                    <button class="quantity-btn">+</button>
+                    <p class="add-more">Agregar una unidad mas</p>
+                </div>
+                <button class="remove-item">???</button>
+            </div>
+        
+            <div class="cart-item">
+                <img src="coca.png" alt="Coca Cola Sin Azúcar 500 ml" class="item-image">
+                <div class="item-details">
+                    <p class="item-name">01 x Coca Cola Con Azúcar 500 ml</p>
+                    <p class="item-price">S/ 4.90</p>
+                    <button class="view-details">Ver detalles</button>
+                </div>
+                <div class="item-quantity">
+                    <button class="quantity-btn">-</button>
+                    <span class="quantity-number">1</span>
+                    <button class="quantity-btn">+</button>
+                    <p class="add-more">Agregar una unidad mas</p>
+                </div>
+                <button class="remove-item">???</button>
+            </div>
+        
+            <div class="cart-summary">
+                <p>Subtotal: <span>S/ 114.70</span></p>
+                <p>Delivery: <span>S/ 0.00</span></p>
+                <p>Total a pagar: <span>S/ 114.70</span></p>
+            </div>
+
+            <div class="discount-code">
+                <input type="text" name="discount" placeholder="Ingresa tu cupon de descuento">
+                <button>Aplicar</button>
+            </div>
+        
+            <div class="cart-actions">
+                <button class="pay-button">Ir a pagar</button>
+                <button class="continue-shopping">Seguir comprando</button>
+            </div>
+
+
+
+        </section>
+        
+
+
+
+
+    </main>
+
+    <script>
+        // Recuperar el nombre del usuario y mostrarlo en la bienvenida
+        const nombreUsuario = localStorage.getItem('nombreUsuario');
+        const welcomeMessage = document.getElementById('welcome-message');
+        welcomeMessage.textContent = `Bienvenido, ${nombreUsuario || 'Usuario'}!`;
+    </script>
+</body>
+
+</html>

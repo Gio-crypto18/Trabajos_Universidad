@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e5e5e5;
+    color: #333;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3d3d3d;
+    padding: 10px 50px;
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.navbar a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.search-bar {
+    padding: 5px;
+    margin-left: 10px;
+}
+
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profile-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info-section {
+    background-color: #cfa7a7;
+    padding: 40px;
+    text-align: center;
+}
+
+.info-section h1 {
+    font-size: 32px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.info-section p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 18px;
+    color: white;
+}
+
+.mission-vision {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px;
+    background-color: #f2f2f2;
+}
+
+.mission, .vision {
+    max-width: 500px;
+    text-align: center;
+}
+
+.mission h2, .vision h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.mission p, .vision p {
+    font-size: 16px;
+    color: #555;
+}
+
+.continue-button {
+    display: block;
+    margin: 30px auto;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.continue-button:hover {
+    background-color: #555;
+}
